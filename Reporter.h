@@ -125,7 +125,7 @@ class Reporter
   void ReportChartWithReference() const;
   void ReportChartNoReference() const;
   
-  /* PLOT FUNCTIONS: These functions produce files at ~/public_html/<file_head>.jpg. */
+  /* PLOT FUNCTIONS: These functions produce files at <file_head>.jpg. */
   
   // HistogramOrderingErrors: Make a histogram showing the odds of a contig being mis-ordered, as a function of the contig's length.
   void HistogramOrderingErrors( const bool full_order, const string & file_head ) const;

@@ -21,11 +21,11 @@ INCLUDES = -I$(LACHESIS_BOOST_DIR) #-I$(HOME)/include
 
 # compiler flags
 
-CFLAGS  = -Wall -ansi -pedantic -g -O3
+CFLAGS  = -Wall -ansi -pedantic -g -O3 -std=c++0x
 #CFLAGS += -pg
 
 # linking flags
-BOOST_LIBS=-L$(LACHESIS_BOOST_DIR)/stage/lib -lboost_system -lboost_filesystem -lboost_regex
+BOOST_LIBS=-L$(LACHESIS_BOOST_DIR)/../lib -lboost_system -lboost_filesystem -lboost_regex
 #INC_LIBS=-L$(HOME)/include -lJtime
 LFLAGS = -lz $(BOOST_LIBS) $(INC_LIBS)
 

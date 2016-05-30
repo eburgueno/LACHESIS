@@ -505,14 +505,14 @@ ChromLinkMatrix::DrawHeatmap( const string & heatmap_file ) const
 {
   WriteFile( "heatmap.txt", true ); // true means to write the file in heatmap format
   
-  // The R script "heatmap.R" is hardwired to take "heatmap.txt" as input and write to ~/public_html/heatmap.jpg.
+  // The R script "heatmap.R" is hardwired to take "heatmap.txt" as input and write to heatmap.jpg.
   // For details on how this script works, see the script itself.
-  cout << Time() << ": Plotting a heatmap at ~/public_html/" << heatmap_file << endl;
+  cout << Time() << ": Plotting a heatmap at " << heatmap_file << endl;
   system( "heatmap.R" );
   
   // Copy the file heatmap.jpg into the place desired.
   if ( heatmap_file != "" && heatmap_file != "heatmap.jpg" )
-    system( ( "cp ~/public_html/heatmap.jpg ~/public_html/" + heatmap_file ).c_str() );
+    system( ( "cp heatmap.jpg " + heatmap_file ).c_str() );
   
   cout << Time() << ": Done plotting!" << endl;
 }
@@ -936,7 +936,7 @@ ChromLinkMatrix::MakeTrunkOrder( const int min_N_REs ) const
   // Optional output: Make a dotplot of the tree.
   if (0) {
     string file = "dotplot.tree.txt";
-    cout << Time() << ": Drawing a dotplot of this spanning tree at ~/public_html/" << file << endl;
+    cout << Time() << ": Drawing a dotplot of this spanning tree at $pwd" << file << endl;
     ofstream out( file.c_str(), ios::out );
     
     for ( int i = 0; i < _N_contigs; i++ )
@@ -945,7 +945,7 @@ ChromLinkMatrix::MakeTrunkOrder( const int min_N_REs ) const
 	  out << i << "\t" << _tree[i][j] << "\n";
     out.close();
     
-    // Run the QuickDotplot script to generate a dot plot image, which gets placed at ~/public_html/<file>.jpg.
+    // Run the QuickDotplot script to generate a dot plot image, which gets placed at $pwd/<file>.jpg.
     string cmd = "QuickDotplot " + file;
     std::system( cmd.c_str() );
   }
@@ -1361,8 +1361,8 @@ ChromLinkMatrix::FindSpanningTree( const int min_N_REs ) const
       ofstream out( "graph.dot", ios::out );
       boost::write_graphviz( out, g, make_label_writer( get(vertex_index,g) ), make_label_writer( get(edge_weight,g) ) );
       out.close();
-      std::system ( "dot -Tpng graph.dot > ~/public_html/graph.png" );
-      cout << "Drew an image of this graph at ~/public_html/graph.png" << endl;
+      std::system ( "dot -Tpng graph.dot > graph.png" );
+      cout << "Drew an image of this graph at graph.png" << endl;
     }
     
   }
@@ -1920,14 +1920,14 @@ ChromLinkMatrix::LinkDensity( const int contig1, const int contig2 ) const
 
 
 
-// PlotTree: Use grpahviz to print a spanning tree to a graph image at ~/public_html/<filename>.
+// PlotTree: Use grpahviz to print a spanning tree to a graph image at <filename>.
 // Note that graphviz is very slow for large graphs, and the output images themselves are sometimes so large as to cause memory problems.
 // Hence this is NOT RECOMMENDED for graphs with over 500 vertices.
 void
 ChromLinkMatrix::PlotTree( const vector< vector<int> > & tree, const string & filename ) const
 {
   assert( (int) tree.size() == _N_contigs );
-  cout << Time() << ": PlotTree: Drawing an image of this spanning tree at ~/public_html/" << filename << endl;
+  cout << Time() << ": PlotTree: Drawing an image of this spanning tree at $pwd" << filename << endl;
   
   
   if ( _N_contigs >= 500 ) cerr << "WARNING: Called ChromLinkMatrix::PlotTree on a large tree of size " << _N_contigs << "; this may take a while, and the output file " << filename << " will take a long time to open" << endl;
@@ -1944,7 +1944,7 @@ ChromLinkMatrix::PlotTree( const vector< vector<int> > & tree, const string & fi
   out << "}\n";
   out.close();
   
-  string cmd = "dot -Tpng " + filename + ".dot > ~/public_html/" + filename;
+  string cmd = "dot -Tpng " + filename + ".dot > " + filename;
   system( cmd.c_str() );
 }
 

@@ -36,7 +36,7 @@ my $input_file = $ARGV[0];
 &test_input_file($input_file);
 my $output_jpg = "$input_file.jpg";
 $output_jpg =~ s/.+\///g;
-$output_jpg = "~/public_html/$output_jpg"; # move the output filename to ~/public_html
+$output_jpg = "$output_jpg"; # move the output filename to $pwd
 
 
 # Figure out the optimal dot size for visual cleanliness.
@@ -44,7 +44,7 @@ my $dot_size = &find_dot_size( $input_file );
 
 
 # Write an R script.  The exact format of the script is specified in &write_R_script and depends on many variables.
-my $script_file = "$ENV{'HOME'}/bin/QuickDotplot.R";
+my $script_file = "/tmp/QuickDotplot.R";
 write_R_script($script_file);
 
 # Now that the R script has been written, let's run it in R.
@@ -138,7 +138,7 @@ sub write_R_script($ )
     my $time = localtime();
     
     print R_SCRIPT <<FILE_END
-#!/net/gs/vol3/software/modules-sw/R/2.15.1/Linux/RHEL6/x86_64/bin/Rscript
+#!/software/x86_64/R/bin/Rscript
 # The above "shebang" allows this file to be self-executing
 
 # QuickDotplot.R

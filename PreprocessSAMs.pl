@@ -1,20 +1,20 @@
 #!/usr/bin/perl -w
 use strict;
 
-///////////////////////////////////////////////////////////////////////////////
-//                                                                           //
-// This software and its documentation are copyright (c) 2014-2015 by Joshua //
-// N. Burton and the University of Washington.  All rights are reserved.     //
-//                                                                           //
-// THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS  //
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF                //
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  //
-// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY      //
-// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT //
-// OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR  //
-// THE USE OR OTHER DEALINGS IN THE SOFTWARE.                                //
-//                                                                           //
-///////////////////////////////////////////////////////////////////////////////
+#///////////////////////////////////////////////////////////////////////////////
+#//                                                                           //
+#// This software and its documentation are copyright (c) 2014-2015 by Joshua //
+#// N. Burton and the University of Washington.  All rights are reserved.     //
+#//                                                                           //
+#// THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS  //
+#// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF                //
+#// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  //
+#// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY      //
+#// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT //
+#// OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR  //
+#// THE USE OR OTHER DEALINGS IN THE SOFTWARE.                                //
+#//                                                                           //
+#///////////////////////////////////////////////////////////////////////////////
 
 
 # PreprocessSAMs.pl
@@ -60,11 +60,11 @@ my $dry_run = 0; # if true, just print the commands to be run - don't actually r
 my $RE_site = 'AAGCTT'; # the restriction enzyme site at which the DNA was cut for the Hi-C experiment
 
 # Paths to the necessary scripts and software packages.
-my $make_bed_around_RE_site_pl = '/net/shendure/vol10/jnburton/src/Lachesis/make_bed_around_RE_site.pl';
-my $bedtools = '/net/shendure/vol10/jnburton/extern/BEDTools-Version-2.15.0/bin/bedtools';
-my $samtools = '/net/gs/vol3/software/modules-sw/samtools/0.1.18/Linux/RHEL6/x86_64/bin/samtools';
+my $make_bed_around_RE_site_pl = '/software/x86_64/LACHESIS/make_bed_around_RE_site.pl';
+my $bedtools = '/software/x86_64/bedtools/bin/bedtools';
+my $samtools = '/software/x86_64/samtools/bin/samtools';
 #my $mem = "16G";
-#my $picard_head = "java -d64 -Xmx$mem -jar /net/shendure/vol10/jnburton/extern/picard-tools-1.50/";
+#my $picard_head = "java -d64 -Xmx$mem -jar /software/x86_64/picard-tools-1.112/";
 
 
 

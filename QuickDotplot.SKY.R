@@ -1,19 +1,19 @@
-#!/net/gs/vol3/software/modules-sw/R/2.15.1/Linux/RHEL6/x86_64/bin/Rscript
+#!/bin/env Rscript
 # The above "shebang" allows this file to be self-executing
-///////////////////////////////////////////////////////////////////////////////
-//                                                                           //
-// This software and its documentation are copyright (c) 2014-2015 by Joshua //
-// N. Burton and the University of Washington.  All rights are reserved.     //
-//                                                                           //
-// THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS  //
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF                //
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  //
-// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY      //
-// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT //
-// OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR  //
-// THE USE OR OTHER DEALINGS IN THE SOFTWARE.                                //
-//                                                                           //
-///////////////////////////////////////////////////////////////////////////////
+#///////////////////////////////////////////////////////////////////////////////
+#//                                                                           //
+#// This software and its documentation are copyright (c) 2014-2015 by Joshua //
+#// N. Burton and the University of Washington.  All rights are reserved.     //
+#//                                                                           //
+#// THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS  //
+#// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF                //
+#// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  //
+#// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY      //
+#// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT //
+#// OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR  //
+#// THE USE OR OTHER DEALINGS IN THE SOFTWARE.                                //
+#//                                                                           //
+#///////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -24,8 +24,8 @@ library( ggplot2, quietly=TRUE ) # ggplot
 library( scales, quietly=TRUE) # labels=comma
 
 
-data.file <- '~/vol10/src/Lachesis/dotplot.20.renumbered.txt'
-jpeg.file <- '~/public_html/dotplot.renumbered.jpg'
+data.file <- 'dotplot.txt'
+jpeg.file <- 'dotplot.SKY.jpg'
 
 
 
@@ -72,7 +72,7 @@ p <- p + geom_point( size = 2.5, aes( col=data[,3] ) )
 # Apply the color scheme for SKY.
 # These RGB values were taken from a close-up of an actual SKY image, sampled in MS Paint like a boss: http://www.ncbi.nlm.nih.gov/sky/ccap_helper.cgi?tsc=2 
 # Chr9 has been changed from white to black because I'm using a white background.
-p <- p + scale_colour_manual( values=rev( c('#FFE800','#900101','#8F8090','#8DE3F6','#8A6911','#9C4D94','#F0A0B0','#F66824','#000000','#049618','#0495D1','#EE04EF','#F70914','#9386EE','#7FE7A0','#F8A80C','#0028F8','#C01C68','#48F41B','#B064EF') ), name = "Chromosome" )
+p <- p + scale_colour_manual( values=rev( c('#FFE800','#900101','#8F8090','#8DE3F6','#8A6911','#9C4D94','#F0A0B0','#F66824','#000000','#049618','#0495D1','#EE04EF','#F70914','#9386EE','#7FE7A0','#F8A80C','#0028F8','#C01C68','#48F41B','#B064EF','#CC0066','#FF9999','#FF9900','#5d874b','#4623ca','#a1af41','#03b168','#450857','#bc6da2') ), name = "Chromosome" )
 
 
 

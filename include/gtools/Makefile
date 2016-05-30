@@ -18,7 +18,7 @@ BACKUPS = *~ \\\#*\\\#
 INCLUDES = -I$(LACHESIS_BOOST_DIR) -I$(LACHESIS_SAMTOOLS_DIR)
 
 # compiler flags
-CFLAGS  = -Wall -ansi -pedantic -g -O3
+CFLAGS  = -Wall -ansi -pedantic -g -O3 -std=c++0x
 
 # dependencies
 

@@ -1054,12 +1054,12 @@ Reporter::DotplotOrderAccuracy( const int ordering_ID, const bool full_order, co
   out.close();
   
   
-  // Run the QuickDotplot script to generate a dot plot image, which gets placed at ~/public_html/<file_head>.jpg.
-  system( "QuickDotplot.POA.R" ); // hard-wired to input the file 'QuickDotplot.POA.txt' and create '~/public_html/POA.jpg'
+  // Run the QuickDotplot script to generate a dot plot image, which gets placed at <file_head>.jpg.
+  system( "QuickDotplot.POA.R" ); // hard-wired to input the file 'QuickDotplot.POA.txt' and create 'POA.jpg'
   if ( file_head != "POA" ) {
     string cmd = "cp QuickDotplot.POA.txt " + file_head + ".txt";
     //system( cmd.c_str() );
-    cmd = "cp ~/public_html/POA.jpg ~/public_html/" + file_head + ".jpg";
+    cmd = "cp POA.jpg " + file_head + ".jpg";
     system( cmd.c_str() );
   }
 }
@@ -1316,7 +1316,7 @@ MakeWholeAssemblyHeatmap( const RunParams & run_params, const int PLOT_N, const 
   
   out.close();
   
-  cout << Time() << ": Making ~/public_html/heatmap.MWAH.jpg... this may take a while" << endl;
+  cout << Time() << ": Making heatmap.MWAH.jpg... this may take a while" << endl;
   system( "heatmap.MWAH.R" );
   
   cout << Time() << ": Done with that heatmap!" << endl;

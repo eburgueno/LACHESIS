@@ -20,6 +20,7 @@ BACKUPS = *~ \\\#*\\\#
 CFLAGS = -Wall -g -O3
 CFLAGS += -ansi
 CFLAGS += -pedantic
+CFLAGS += -std=c++0x
 #CFLAGS += -pg
 
 # Includes
@@ -28,7 +29,7 @@ INCLUDES=-I$(INCLUDE_DIR) -I$(LACHESIS_SAMTOOLS_DIR) -I$(LACHESIS_BOOST_DIR)
 
 # Linking flags.  The environment variables BOOST_LIBS and SAMTOOLS_LIBS must be set or this won't work.
 INC_LIBS=-L$(INCLUDE_DIR) -lJtime -lJgtools -lJmarkov
-BOOST_LIBS=-L$(LACHESIS_BOOST_DIR)/stage/lib -lboost_system -lboost_filesystem -lboost_regex
+BOOST_LIBS=-L$(LACHESIS_BOOST_DIR)/../lib -lboost_system -lboost_filesystem -lboost_regex
 SAMTOOLS_LIBS=-L$(LACHESIS_SAMTOOLS_DIR) -lbam
 LFLAGS = $(INC_LIBS) $(BOOST_LIBS) $(SAMTOOLS_LIBS) -lz -lpthread
 

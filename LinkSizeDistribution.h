@@ -77,7 +77,7 @@ class LinkSizeDistribution
   void ReadFile ( const string & infile );
   void WriteFile( const string & outfile ) const;
   
-  // DrawDotplot: Use QuickDotplot to make a dotplot of this LinkSizeDistribution at ~/public_html/LinkSizeDistribution.jpg.
+  // DrawDotplot: Use QuickDotplot to make a dotplot of this LinkSizeDistribution at LinkSizeDistribution.jpg.
   void DrawDotplot( const bool rescale = false ) const;
   
   // FindEnrichmentOnContig: Input a contig's length L and its set of intra-contig links.  Determine the local enrichment of links on (and, presumably, in the

@@ -673,7 +673,7 @@ GenomeLinkMatrix::AHClustering( const int N_CLUSTERS_MIN, const vector<int> & CE
   
   set<int>::const_iterator set_it1, set_it2;
   
-  // HEUR: Range for number of clusters that will get printed out to SKY dotplots at ~/public_html/dotplot.SKY.<n>.jpg
+  // HEUR: Range for number of clusters that will get printed out to SKY dotplots at dotplot.SKY.<n>.jpg
   static const int N_CLUSTERS_MAX = DRAW_DOTPLOT ? 1.25 * N_CLUSTERS_MIN : N_CLUSTERS_MIN;
   
   
@@ -881,7 +881,7 @@ GenomeLinkMatrix::AHClustering( const int N_CLUSTERS_MIN, const vector<int> & CE
 	DrawClusterDotplot( *true_mapping );
 	string cmd = "mv dotplot.txt dotplot." + boost::lexical_cast<string>(N_non_singleton_clusters) + ".txt";
 	system( cmd.c_str() );
-	cmd = "mv ~/public_html/dotplot.SKY.jpg ~/public_html/dotplot.SKY." + boost::lexical_cast<string>(N_non_singleton_clusters) + ".jpg";
+	cmd = "mv dotplot.SKY.jpg dotplot.SKY." + boost::lexical_cast<string>(N_non_singleton_clusters) + ".jpg";
 	system( cmd.c_str() );
       }
       
@@ -1295,7 +1295,7 @@ GenomeLinkMatrix::DrawClusterDotplot( const TrueMapping & true_mapping ) const
   {
     string outfile = "dotplot.jpg";
     if ( _species == "human" ) outfile = "dotplot.SKY.jpg";
-    cout << Time() << ": DrawClusterDotplot -> ~/public_html/" << outfile << endl;
+    cout << Time() << ": DrawClusterDotplot -> " << outfile << endl;
   }
   
   
@@ -1338,7 +1338,7 @@ GenomeLinkMatrix::DrawClusterDotplot( const TrueMapping & true_mapping ) const
   out.close();
   
   
-  // Run the QuickDotplot script to generate a dot plot image, which gets placed at ~/public_html/<file>.jpg.
+  // Run the QuickDotplot script to generate a dot plot image, which gets placed at <file>.jpg.
   // For details on how this script works, see the script itself.
   string cmd = "QuickDotplot " + file;
   if ( _species == "human" ) cmd = "QuickDotplot.SKY.R " + file;
@@ -1368,14 +1368,14 @@ GenomeLinkMatrix::DrawHeatmap( const string & heatmap_file ) const
 {
   WriteFile( "heatmap.txt" );
   
-  // The R script "heatmap.R" is hardwired to take "heatmap.txt" as input and write to ~/public_html/heatmap.jpg.
+  // The R script "heatmap.R" is hardwired to take "heatmap.txt" as input and write to heatmap.jpg.
   // For details on how this script works, see the script itself.
-  cout << Time() << ": Plotting a heatmap at ~/public_html/" << heatmap_file << endl;
+  cout << Time() << ": Plotting a heatmap at " << heatmap_file << endl;
   system( "heatmap.R" );
   
   // Copy the file heatmap.jpg into the place desired.
   if ( heatmap_file != "" && heatmap_file != "heatmap.jpg" )
-    system( ( "cp ~/public_html/heatmap.jpg ~/public_html/" + heatmap_file ).c_str() );
+    system( ( "cp heatmap.jpg " + heatmap_file ).c_str() );
   
   cout << Time() << ": Done plotting!" << endl;
 }

@@ -172,7 +172,7 @@ class ChromLinkMatrix
   // LinkDensity: Return the number of Hi-C links connecting these two contigs (normalized to contig lengths, if this is a de novo CLM.)
   double LinkDensity( const int contig1, const int contig2 ) const;
   
-  // PlotTree: Use grpahviz to print a spanning tree to a graph image at ~/public_html/<filename>.  <filename> should end in "png".
+  // PlotTree: Use grpahviz to print a spanning tree to a graph image at <filename>.  <filename> should end in "png".
   // Note that graphviz is very slow for large graphs, and the output images themselves are sometimes so large as to cause memory problems.
   // Hence this is NOT RECOMMENDED for graphs with over 500 vertices.
   void PlotTree( const vector< vector<int> > & tree, const string & filename ) const;

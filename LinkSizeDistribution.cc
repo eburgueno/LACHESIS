@@ -407,7 +407,7 @@ LinkSizeDistribution::WriteFile( const string & outfile ) const
 
 
 
-// DrawDotplot: Use QuickDotplot to make a dotplot of this LinkSizeDistribution at ~/public_html/LinkSizeDistribution.jpg.
+// DrawDotplot: Use QuickDotplot to make a dotplot of this LinkSizeDistribution at LinkSizeDistribution.jpg.
 // If rescale = true, multiply each bin's link density by the bin size.  This makes a graph that looks roughly flat (y = C) instead of decreasing (y = C/x).
 void
 LinkSizeDistribution::DrawDotplot( const bool rescale ) const

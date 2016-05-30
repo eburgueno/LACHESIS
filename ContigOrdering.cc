@@ -798,7 +798,7 @@ ContigOrdering::DrawDotplot( const string & file ) const
   out.close();
   
   
-  // Run the QuickDotplot script to generate a dot plot image, which gets placed at ~/public_html/<file>.jpg.
+  // Run the QuickDotplot script to generate a dot plot image, which gets placed at <file>.jpg.
   // For details on how this script works, see the script itself.
   string cmd = "QuickDotplot " + file;
   system( cmd.c_str() );
@@ -838,7 +838,7 @@ ContigOrdering::DrawDotplotVsTruth( const set<int> & cluster, const TrueMapping 
   out.close();
   
   
-  // Run the QuickDotplot script to generate a dot plot image, which gets placed at ~/public_html/<file>.jpg.
+  // Run the QuickDotplot script to generate a dot plot image, which gets placed at <file>.jpg.
   // For details on how this script works, see the script itself.
   string cmd = "QuickDotplot " + file;
   system( cmd.c_str() );

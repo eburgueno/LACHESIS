@@ -21,11 +21,11 @@ AR      = ar crv
 BACKUPS = *~ \\\#*\\\#
 
 # compiler flags
-CFLAGS  = -Wall -ansi -pedantic -g -O3
+CFLAGS  = -Wall -ansi -pedantic -g -O3 -std=c++0x
 INCLUDES = -I$(LACHESIS_SAMTOOLS_DIR) -I$(LACHESIS_BOOST_DIR)
 
 # linking flags.  The LACHESIS_BOOST_DIR environment variable must be set
-BOOST_LIBS=-L$(LACHESIS_BOOST_DIR)/stage/lib -lboost_filesystem
+BOOST_LIBS=-L$(LACHESIS_BOOST_DIR)/../lib -lboost_filesystem
 LFLAGS = $(BOOST_LIBS)
 
 # dependencies
